@@ -2,13 +2,20 @@ name: Scheduled build
 
 on:
   schedule:
-    - cron: '0 18 * * *'
+    - cron: '0/5 * * * *'
 
 jobs:
   build:
-    name: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-18.04, windows-2019 ]
+        php: [ '5.4', '5.5', '5.6', '7.1', '7.2', '7.3', '7.3.3' ]
+    name: PHP ${{ matrix.php }} sample
     steps:
-      - name: php
-        run: php get_file.php
+      - uses: actions/checkout@master
+      - name: Setup PHP
+        uses: nanasess/setup-php@master
+        with:
+          php-version: ${{ matrix.php }}
+      - run: php get_file.php

@@ -11,4 +11,4 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: php
-        run: php /public/get_file.php
+        run: php ./public/get_file.php

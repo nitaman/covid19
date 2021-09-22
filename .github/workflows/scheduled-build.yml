@@ -1,0 +1,13 @@
+name: Scheduled build
+
+on:
+  schedule:
+    - cron: '0/10 * * * *'
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: php
+        run: php public/get_file.php

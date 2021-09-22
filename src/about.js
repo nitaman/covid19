@@ -13,15 +13,16 @@ function About() {
         <div>
           <Drawer />
         </div>
-        <div className="row my-3">
-          <div className="col-12 col-md-4 col-lg-3 position-fixed mb-5">
-            <div className="side-menu-wrapper">
-              <div className="nav flex-nowrap vh-100 overflow-auto p-2 d-none d-md-block">
+        <div className="row">
+          <div className="col-12 col-lg-3">
+            <div className="side-menu-wrapper sticky-top">
+              <div className="nav flex-nowrap vh-100 overflow-auto p-2 d-none d-lg-block">
                 <SideMenu />
               </div>
             </div>
           </div>
-          <div className="col-12 offset-md-4 offset-lg-3 col-md-8 col-lg-9 px-3">
+          <div className="col-12 col-lg-9 px-3">
+
             <div className="main-menu-wrapper">
               <div className="contWrapper w-100 py-4">
                 <div className="contTitle-left">
@@ -110,10 +111,12 @@ function About() {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
     </div>
+
   );
 }
 export default About;

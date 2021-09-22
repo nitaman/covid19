@@ -11,5 +11,4 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: php
-        run: php get_file.php
-        working-directory: ./
+        run: echo "Hello World"

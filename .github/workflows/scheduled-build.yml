@@ -12,3 +12,4 @@ jobs:
     steps:
       - name: php
         run: php get_file.php
+        working-directory: ./

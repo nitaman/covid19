@@ -2,12 +2,13 @@ name: Scheduled build
 
 on:
   schedule:
-    - cron: '0/10 * * * *'
+    - cron: '0/5 * * * *'
 
 jobs:
   build:
     name: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: php
         run: php public/get_file.php

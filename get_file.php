@@ -7,7 +7,7 @@ $arr = json_decode($json,true);
 
 //$path = '/var/www/html/wp-content/themes/understrap-child-dtnews/covid/';
 //$path = '/Users/dailytohoku/AWS/react/covid/public/data/';
-$path = './';
+$path = 'https://github.com/nitaman/covid19/';
 
 $target = $path.'*.csv';
 $result = glob($target);

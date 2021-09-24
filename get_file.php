@@ -9,6 +9,8 @@ $arr = json_decode($json,true);
 //$path = '/Users/dailytohoku/AWS/react/covid/public/data/';
 $path = $_SERVER['DOCUMENT_ROOT'];
 
+echo $path;
+
 $target = $path.'*.csv';
 $result = glob($target);
 /*

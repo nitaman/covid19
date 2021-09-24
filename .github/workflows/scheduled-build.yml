@@ -3,23 +3,48 @@ name: Scheduled build
 on:
   schedule:
     - cron: '0/5 * * * *'
+  push:
+    branches:
+      - master
+    paths:
+      - '*.php'
+  pull_request:
+    paths:
+      - '*.php'
 
 jobs:
-  run:
-    runs-on: ${{ matrix.operating-system }}
+  lint:
+    name: eslint
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        operating-system: [ubuntu-latest, windows-latest, macOS-latest]
-        php-versions: ['7.2', '7.3']
-    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
+        node-version: [8, 10, 12]
     steps:
-      -name: Checkout
-        uses: actions/checkout@v2
-      -name: Install PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php-versions }}
-          extensions: intl #optional
-          ini-values: "post_max_size=256M" #optional
-      -name: Check PHP Version
-        run: php get_file.php
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm install and lint
+      run: |
+        npm ci
+        npm run lint
+      env:
+        CI: true
+  test:
+    name: Library test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [8, 10, 12]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: shivammathur/setup-php@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm install and test
+      run: |
+        php get_file.php
+      env:
+        CI: true

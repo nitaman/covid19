@@ -1,34 +1,10 @@
-name: Scheduled build
-
-on:
-  schedule:
-    - cron: '0/5 * * * *'
-  push:
-    branches:
-      - master
-    paths:
-      - '*.php'
-  pull_request:
-    paths:
-      - '*.php'
-
+name: learn-github-actions
+on: [push]
 jobs:
-  lint:
-    name: eslint
+  check-bats-version:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [8, 10, 12]
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php-versions }}
-        extensions: intl #optional
-        ini-values: "post_max_size=256M" #optional
-    - name: npm install and test
-      run: |
-        php get_file.php
-      env:
-        CI: true
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install -g bats
+      - run: bats -v

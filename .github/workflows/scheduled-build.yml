@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: shivammathur/setup-php@v2
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install and lint
@@ -42,7 +42,9 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: shivammathur/setup-php@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        php-version: ${{ matrix.php-versions }}
+        extensions: intl #optional
+        ini-values: "post_max_size=256M" #optional
     - name: npm install and test
       run: |
         php get_file.php

@@ -6,7 +6,8 @@ $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 $arr = json_decode($json,true);
 
 //$path = '/var/www/html/wp-content/themes/understrap-child-dtnews/covid/';
-$path = '/Users/dailytohoku/AWS/react/covid/public/data/';
+//$path = '/Users/dailytohoku/AWS/react/covid/public/data/';
+$path = '/';
 
 $target = $path.'*.csv';
 $result = glob($target);

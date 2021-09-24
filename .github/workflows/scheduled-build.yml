@@ -13,13 +13,10 @@ jobs:
         php-versions: ['7.2', '7.3']
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
     steps:
-    -name: Checkout
-      uses: actions/checkout@master
-    -name: Install PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php-versions }}
-        extensions: intl #optional
-        ini-values: "post_max_size=256M" #optional
-    -name: Check PHP Version
-      run: php get_file.php
+      - uses: actions/checkout@master
+      - name: Setup PHP
+        uses: nanasess/setup-php@master
+        with:
+          php-version: ${{ matrix.php }}
+      - run: php get_file.php
+

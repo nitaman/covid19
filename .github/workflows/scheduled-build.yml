@@ -10,3 +10,9 @@ jobs:
       - run: php -r "echo  __DIR__.PHP_EOL;"
       - run: php -v
       - run: php get_file.php
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./data
+          publish_branch: main

@@ -1,7 +1,7 @@
 name: Schedule build
 on: [push]
 jobs:
-  file get contents:
+  file-get-contents:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

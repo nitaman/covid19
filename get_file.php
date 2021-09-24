@@ -7,7 +7,7 @@ $arr = json_decode($json,true);
 
 //$path = '/var/www/html/wp-content/themes/understrap-child-dtnews/covid/';
 //$path = '/Users/dailytohoku/AWS/react/covid/public/data/';
-$path = $_SERVER['DOCUMENT_ROOT'];
+$path = '/home/runner/work/covid19/covid19/';
 
 $target = $path.'*.csv';
 $result = glob($target);
@@ -26,7 +26,7 @@ for($i=0; $i<count($arr['result']['resources']); $i++) {
   $csvOrder = explode('_', $csvName)[0];
   $csvData = file_get_contents($arr['result']['resources'][$i]['download_url']);
   $csvData = mb_convert_encoding($csvData, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-  $file = $localFilePath.$csvOrder.'.csv';
+  $file = $path.$csvOrder.'.csv';
   file_put_contents($file, $csvData); // 処理の結果をファイルに書き出す
 }
 ?>

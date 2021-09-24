@@ -24,24 +24,6 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: shivammathur/setup-php@v2
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install and lint
-      run: |
-        npm ci
-        npm run lint
-      env:
-        CI: true
-  test:
-    name: Library test
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [8, 10, 12]
-    steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: shivammathur/setup-php@v1
-      with:
         php-version: ${{ matrix.php-versions }}
         extensions: intl #optional
         ini-values: "post_max_size=256M" #optional

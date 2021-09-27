@@ -10,7 +10,7 @@ $arr = json_decode($json,true);
 //$path = '/Users/dailytohoku/AWS/react/covid/public/data/';
 $path = '/home/runner/work/covid19/covid19/public/data';
 
-echo fileperms($path);
+echo substr( sprintf( '%o', fileperms($path)), -4);
 
 /*
 if (is_dir($path)) {

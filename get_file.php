@@ -10,19 +10,19 @@ $arr = json_decode($json,true);
 //$path = '/Users/dailytohoku/AWS/react/covid/public/data/';
 $path = '/home/runner/work/covid19/covid19/public/data';
 
+/*
 if (is_dir($path)) {
   if ($dh = opendir($path)) {
-      while (($file = readdir($dh)) !== false) {
-          echo "filename: $file" . "\n";
-      }
-      closedir($dh);
+    while (($file = readdir($dh)) !== false) {
+      echo "filename: $file" . "\n";
+    }
+    closedir($dh);
   }
 }
+*/
 
 $target = $path.'*.csv';
 $result = glob($target);
-
-echo count($arr['result']['resources']);
 
 /*
 if(empty($result)) {
@@ -35,6 +35,7 @@ $localFilePath = $path;
 
 for($i=0; $i<count($arr['result']['resources']); $i++) {
   $csvName = $arr['result']['resources'][$i]['name'];
+  echo $csvName."\n";
   $csvUpDate = $arr['result']['resources'][$i]['updated'];
   $csvOrder = explode('_', $csvName)[0];
   $csvData = file_get_contents($arr['result']['resources'][$i]['download_url']);

@@ -22,7 +22,7 @@ if (is_dir($path)) {
 $target = $path.'*.csv';
 $result = glob($target);
 
-var_dump($result);
+echo count($arr['result']['resources']);
 
 /*
 if(empty($result)) {

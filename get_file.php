@@ -10,7 +10,7 @@ $arr = json_decode($json,true);
 //$path = '/Users/dailytohoku/AWS/react/covid/public/data/';
 $path = '/home/runner/work/covid19/covid19/public/data';
 
-echo fileperms($path;
+echo fileperms($path);
 
 /*
 if (is_dir($path)) {

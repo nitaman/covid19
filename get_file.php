@@ -38,6 +38,7 @@ for($i=0; $i<count($arr['result']['resources']); $i++) {
   $csvUpDate = $arr['result']['resources'][$i]['updated'];
   $csvOrder = explode('_', $csvName)[0];
   $csvData = file_get_contents($arr['result']['resources'][$i]['download_url']);
+  $csvData = mb_convert_encoding($csvData,"utf-8","auto");
   echo $csvData."\n";
   $csvData = mb_convert_encoding($csvData, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
   $file = $path.$csvOrder.'.csv';

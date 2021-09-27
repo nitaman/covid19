@@ -10,8 +10,6 @@ $arr = json_decode($json,true);
 //$path = '/Users/dailytohoku/AWS/react/covid/public/data/';
 $path = '/home/runner/work/covid19/covid19/public/data';
 
-echo substr( sprintf( '%o', fileperms($path)), -4);
-
 /*
 if (is_dir($path)) {
   if ($dh = opendir($path)) {
@@ -41,6 +39,7 @@ for($i=0; $i<count($arr['result']['resources']); $i++) {
   $csvOrder = explode('_', $csvName)[0];
   $csvData = file_get_contents($arr['result']['resources'][$i]['download_url']);
   $csvData = mb_convert_encoding($csvData, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+  echo $csvData."\n";
   $file = $path.$csvOrder.'.csv';
 
   file_put_contents($file, $csvData); // 処理の結果をファイルに書き出す

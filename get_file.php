@@ -13,7 +13,7 @@ $path = '/home/runner/work/covid19/covid19/public/data';
 if (is_dir($path)) {
   if ($dh = opendir($path)) {
       while (($file = readdir($dh)) !== false) {
-          echo "filename: $file : filetype: " . filetype($path . $file) . "\n";
+          echo "filename: $file : filetype: " . "\n";
       }
       closedir($dh);
   }

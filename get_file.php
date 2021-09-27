@@ -40,6 +40,6 @@ for($i=0; $i<count($arr['result']['resources']); $i++) {
   $csvData = file_get_contents($arr['result']['resources'][$i]['download_url']);
   $csvData = mb_convert_encoding($csvData, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
   $file = $path.$csvOrder.'.csv';
-  echo file_put_contents($file, $csvData); // 処理の結果をファイルに書き出す
+  echo file_put_contents($file, $csvData)."\n"; // 処理の結果をファイルに書き出す
 }
 ?>

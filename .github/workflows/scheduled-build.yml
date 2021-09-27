@@ -1,4 +1,4 @@
-name: Schedule build
+name: Schedule build covid
 on: [push]
 jobs:
   file-get-contents:

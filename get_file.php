@@ -35,10 +35,10 @@ $localFilePath = $path;
 
 for($i=0; $i<count($arr['result']['resources']); $i++) {
   $csvName = $arr['result']['resources'][$i]['name'];
-  echo $csvName."\n";
   $csvUpDate = $arr['result']['resources'][$i]['updated'];
   $csvOrder = explode('_', $csvName)[0];
   $csvData = file_get_contents($arr['result']['resources'][$i]['download_url']);
+  echo $csvData."\n";
   $csvData = mb_convert_encoding($csvData, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
   $file = $path.$csvOrder.'.csv';
   file_put_contents($file, $csvData); // 処理の結果をファイルに書き出す

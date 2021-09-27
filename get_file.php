@@ -8,7 +8,7 @@ $arr = json_decode($json,true);
 
 //$path = '/var/www/html/wp-content/themes/understrap-child-dtnews/covid/';
 //$path = '/Users/dailytohoku/AWS/react/covid/public/data/';
-$path = '/home/runner/work/covid19/covid19/public/data';
+$path = 'https://github.com/nitaman/covid19/blob/main/public/data/';
 
 /*
 if (is_dir($path)) {

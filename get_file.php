@@ -5,6 +5,8 @@ $json = file_get_contents($filename);
 $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 $arr = json_decode($json,true);
 
+echo "aaaaa";
+
 //$path = '/var/www/html/wp-content/themes/understrap-child-dtnews/covid/';
 //$path = '/Users/dailytohoku/AWS/react/covid/public/data/';
 $path = '/home/runner/work/covid19/covid19/public/data';

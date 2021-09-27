@@ -13,7 +13,7 @@ $path = '/home/runner/work/covid19/covid19/public/data';
 if (is_dir($path)) {
   if ($dh = opendir($path)) {
       while (($file = readdir($dh)) !== false) {
-          echo "filename: $file : filetype: " . "\n";
+          echo "filename: $file" . "\n";
       }
       closedir($dh);
   }
@@ -21,6 +21,9 @@ if (is_dir($path)) {
 
 $target = $path.'*.csv';
 $result = glob($target);
+
+echo $result;
+
 /*
 if(empty($result)) {
   $localFilePath = '';

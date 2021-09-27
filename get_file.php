@@ -22,7 +22,7 @@ if (is_dir($path)) {
 $target = $path.'*.csv';
 $result = glob($target);
 
-echo $result;
+var_dump($result);
 
 /*
 if(empty($result)) {

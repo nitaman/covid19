@@ -39,8 +39,8 @@ for($i=0; $i<count($arr['result']['resources']); $i++) {
   $csvOrder = explode('_', $csvName)[0];
   $csvData = file_get_contents($arr['result']['resources'][$i]['download_url']);
   $csvData = mb_convert_encoding($csvData, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-  echo $csvData."\n";
   $file = $path.$csvOrder.'.csv';
+  echo $file."\n";
   file_put_contents($file, $csvData); // 処理の結果をファイルに書き出す
 }
 ?>

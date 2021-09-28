@@ -41,7 +41,7 @@ for($i=0; $i<count($arr['result']['resources']); $i++) {
   $csvData = mb_convert_encoding($csvData, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
   echo $csvData."\n";
   $file = $path.$csvOrder.'.csv';
+  echo file_put_contents($file, $csvData)."\n"; // 処理の結果をファイルに書き出す
 
-  file_put_contents($file, $csvData); // 処理の結果をファイルに書き出す
 }
 ?>
